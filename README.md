@@ -1,5 +1,9 @@
 # Newsletter Frontend
 
+This tool enables simple generation and mangement of HTML newsletters.
+
+See it [live](https://delsner.github.io/newsletter).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
 
 ## Development server
