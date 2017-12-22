@@ -1,0 +1,21 @@
+@import "./shared/styles/main";
+
+$content-width: 960px;
+
+.main__header {
+  background-color: $accent;
+  width: 100%;
+  padding: $unit-xl;
+}
+
+.main__footer {
+  background-color: $primary;
+}
+
+.main__content {
+  width: 100%;
+}
+
+.main__supporters {
+  width: 100%;
+}

@@ -1,0 +1,12 @@
+<div fxFlex fxLayout="column">
+  <mat-input-container>
+    <input matInput [(ngModel)]="username" placeholder="Username">
+  </mat-input-container>
+  <mat-input-container>
+    <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+  </mat-input-container>
+  <p *ngIf="error" style="color:red;"> {{error}}</p>
+  <button mat-raised-button color="primary" class="margin-bottom--xs" (click)="login()">Login</button>
+  <button mat-raised-button class="margin-bottom--xs" (click)="signup()">Signup</button>
+  <button mat-raised-button color="warn" class="margin-bottom--xs" (click)="dialogRef.close(false)">Close</button>
+</div>

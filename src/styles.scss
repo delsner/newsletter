@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/shared/styles/main";
+
+// general styles
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Raleway', sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  background-color: $light-gray-bg;
+}
+
+.highlighted {
+  color: $warn;
+}
+
+.text-color-light {
+  * {
+    color: $light-font-color !important;
+  }
+}
+
+// custom card style
+.card {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: $white-bg;
+}
+
+// override max width of dialog
+mat-dialog-container.mat-dialog-container {
+  max-width: 100vw;
+}
+
+mat-dialog-content.mat-dialog-content {
+  max-height: inherit;
+}
+
+.mat-form-field-infix {
+  width: inherit !important;
+}
+
+// removes focus border around elements
+:focus {
+  outline: -webkit-focus-ring-color auto 0;
+}

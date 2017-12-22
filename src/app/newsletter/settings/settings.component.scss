@@ -1,0 +1,33 @@
+@import "../../shared/styles/main";
+
+:host {
+  width: 100%;
+}
+
+.settings__preview {
+  @include breakpoint-max($screen-sm-max) {
+    margin-top: $unit-sm;
+  }
+
+  @include breakpoint-min($screen-md-min) {
+    margin-left: $unit-sm;
+  }
+}
+
+.color-square {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+.color-square p {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.img-preview img {
+  width: 32px;
+  height: 32px;
+  padding: 10px;
+  object-fit: cover;
+}

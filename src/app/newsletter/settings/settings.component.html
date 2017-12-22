@@ -1,0 +1,231 @@
+<div class="settings__container padding--sm" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="settings__inputs" fxFlex fxFlex.gt-sm="40">
+    <mat-card>
+      <!--META-->
+      <mat-card-title>Meta Section</mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-input-container>
+          <input matInput placeholder="Heading" [(ngModel)]="email.meta.heading">
+        </mat-input-container>
+      </mat-card-content>
+
+      <!--GENERAL-->
+      <mat-card-title>General Section</mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-input-container>
+          <input matInput placeholder="Heading" [(ngModel)]="email.general.heading">
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Subheading" [(ngModel)]="email.general.subheading">
+        </mat-input-container>
+        <div fxLayout="row" class="img-preview">
+          <img [src]="email.general.logo" alt="logo">
+          <mat-input-container>
+            <input matInput placeholder="Logo-Link" [(ngModel)]="email.general.logo" fxFlex>
+          </mat-input-container>
+        </div>
+      </mat-card-content>
+
+      <!--COLORS-->
+      <mat-card-title>Color Palette</mat-card-title>
+      <mat-card-content fxLayout="column">
+        <div fxLayout="row" class="color-palette-container">
+          <div class="color-palette">
+            <div [style.background]="email.colors.primary" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.primary">Primary</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.primary" [value]="email.colors.primary"/>
+            </mat-input-container>
+          </div>
+          <div class="color-palette">
+            <div [style.background]="email.colors.secondary" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.secondary">Secondary</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.secondary" [value]="email.colors.secondary"/>
+            </mat-input-container>
+          </div>
+          <div class="color-palette">
+            <div [style.background]="email.colors.third" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.third">Third</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.third" [value]="email.colors.third"/>
+            </mat-input-container>
+          </div>
+        </div>
+
+        <div fxLayout="row" class="color-palette-container">
+          <div class="color-palette">
+            <div [style.background]="email.colors.fourth" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.fourth">Fourth</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.fourth" [value]="email.colors.fourth"/>
+            </mat-input-container>
+          </div>
+          <div class="color-palette">
+            <div [style.background]="email.colors.fifth" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.fifth">Fifth</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.fifth" [value]="email.colors.fifth"/>
+            </mat-input-container>
+          </div>
+          <div class="color-palette">
+            <div [style.background]="email.colors.sixth" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.sixth">Sixth</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.sixth" [value]="email.colors.sixth"/>
+            </mat-input-container>
+          </div>
+        </div>
+
+        <div fxLayout="row" class="color-palette-container">
+          <div class="color-palette">
+            <div [style.background]="email.colors.seventh" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.seventh">Seventh</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.seventh" [value]="email.colors.seventh"/>
+            </mat-input-container>
+          </div>
+          <div class="color-palette">
+            <div [style.background]="email.colors.eighth" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.eighth">Eighth</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.eighth" [value]="email.colors.eighth"/>
+            </mat-input-container>
+          </div>
+          <div class="color-palette">
+            <div [style.background]="email.colors.ninth" class="color-square" fxLayoutAlign="center center">
+              <p [style.color]="email.colors.ninth">Ninth</p>
+            </div>
+            <mat-input-container class="margin-horizontal--xs">
+              <input matInput [(colorPicker)]="email.colors.ninth" [value]="email.colors.ninth"/>
+            </mat-input-container>
+          </div>
+
+        </div>
+      </mat-card-content>
+
+      <!--INTRODUCTION-->
+      <mat-card-title>Introduction</mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-input-container>
+          <input matInput placeholder="Heading" [(ngModel)]="email.introduction.heading">
+        </mat-input-container>
+        <label>Text</label>
+        <mat-input-container>
+          <textarea matInput placeholder="Text" rows="4" [(ngModel)]="email.introduction.text"></textarea>
+        </mat-input-container>
+      </mat-card-content>
+
+      <!--STORIES-->
+      <mat-card-title>Sections</mat-card-title>
+      <div fxLayout="row" class="section-action-buttons">
+        <button mat-raised-button color="primary" (click)="addSection()" class="margin-right--sm">Add section</button>
+      </div>
+      <mat-card-content fxLayout="column">
+        <div *ngFor="let section of email.sections;let i = index" fxLayout="column">
+          <h4>Section
+            {{i+1}}</h4>
+          <div *ngIf="email.sections.length > 1">
+            <button mat-mini-fab (click)="moveSectionUp(i)">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab (click)="moveSectionDown(i)">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </div>
+          <mat-input-container>
+            <input matInput placeholder="Heading" [(ngModel)]="section.heading"/>
+          </mat-input-container>
+          <mat-input-container>
+            <textarea matInput placeholder="Text" rows="4" [(ngModel)]="section.text"></textarea>
+          </mat-input-container>
+          <div fxLayout="row" class="img-preview">
+            <img [src]="section.img" alt="logo">
+            <mat-input-container>
+              <input matInput placeholder="Picture Link" [(ngModel)]="section.img" fxFlex/>
+            </mat-input-container>
+          </div>
+          <mat-input-container>
+            <input matInput placeholder="Button Text" [(ngModel)]="section.button"/>
+          </mat-input-container>
+          <mat-input-container>
+            <input matInput placeholder="Button Link" [(ngModel)]="section.link"/>
+          </mat-input-container>
+          <div>
+            <button mat-raised-button color="warn" (click)="removeSection(i)">Remove section</button>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <!--BOTTOM MESSAGE-->
+      <mat-card-title>Bottom</mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-input-container>
+          <textarea matInput placeholder="Text" [(ngModel)]="email.bottom.text"></textarea>
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Unsubscribe" [(ngModel)]="email.bottom.unsubscribe"/>
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Unsubscribe Link" [(ngModel)]="email.bottom.link"/>
+        </mat-input-container>
+      </mat-card-content>
+
+      <!--IMPRINT-->
+      <mat-card-title>Imprint</mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-input-container>
+          <input matInput placeholder="Company" [(ngModel)]="email.imprint.company"/>
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Street" [(ngModel)]="email.imprint.street"/>
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="City" [(ngModel)]="email.imprint.city"/>
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Website" [(ngModel)]="email.imprint.website"/>
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Responsibilities" [(ngModel)]="email.imprint.responsibilities"/>
+        </mat-input-container>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="settings__preview" fxFlex>
+    <mat-card>
+      <mat-card-title>Preview</mat-card-title>
+      <mat-card-subtitle>To get the code please scroll down.</mat-card-subtitle>
+      <h5 *ngIf="!user">Click login if you want to store your emails into a database (anonymously).</h5>
+      <h5 *ngIf="user">Hello
+        {{user.username}}</h5>
+      <button mat-raised-button color="primary" (click)="open()" *ngIf="!user">Login</button>
+      <button mat-raised-button color="primary" (click)="logout()" *ngIf="user">Logout</button>
+
+      <mat-form-field>
+        <mat-select *ngIf="user" [ngModel]="selectedEmail" (ngModelChange)="onChange($event)"
+                    placeholder="Select email...">
+          <mat-option *ngFor="let item of fetchedEmails" [value]="item">{{item.content.meta &&
+            item.content.meta.heading
+            }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button color="accent" mat-raised-button (click)="storeEmail()" *ngIf="user">Save</button>
+      <button mat-raised-button (click)="createNewEmail()" *ngIf="user">Create new</button>
+      <button color="warn" mat-raised-button (click)="deleteEmail()" *ngIf="user && selectedEmail">Delete</button>
+      <mat-card-content class="margin-vertical--sm">
+        <preview [email]="email"></preview>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
